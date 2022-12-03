@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1669939372 source:c:\users\willian\desktop\vs_c_code\startupp2\main.c
+	"dadosFixos.h"
+	"menu.h"
+
+1669939019 c:\users\willian\desktop\vs_c_code\startupp2\dadosfixos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"menu.h"
+
+1669940223 c:\users\willian\desktop\vs_c_code\startupp2\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<locale.h>
+
