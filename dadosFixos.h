@@ -1,13 +1,7 @@
 #ifndef DADOS_H_INCLUDE
 #define DADOS_H_INCLUDE
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
 #include "menu.h"
-#define max 3
-#define names 50
-
+//substituir pela quantidade de projetos fixos criados
 void toTest(prjt pjt[max])//ja deixa os projetos criados
 {
     int i=0;

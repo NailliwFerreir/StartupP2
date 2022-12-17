@@ -5,7 +5,7 @@
 #include<string.h>
 #include<ctype.h>
 #include<locale.h>
-#define max 3
+#define max 2
 #define names 50
 
 typedef struct Data//Estrutura de data
@@ -28,20 +28,20 @@ typedef struct projeto//Projetos da empresa
 void controle (prjt pjt[]){//Funcao para retornar ao Menu ou sair
     setlocale(LC_ALL,"portuguese");
     int contrl= 0;
-    printf("\nDigite o n˙mero correspondente ao comando para execut·-lo!\n");
+    printf("\nDigite o n√∫mero correspondente ao comando para execut√°-lo!\n");
     printf("\n1-Retornar ao menu inicial\n2-Sair do Programa\n\n");
     scanf("%d",&contrl);
         if((contrl>2)||(contrl<1))
     {
-        printf("\nOps n„o conheÁo essa opÁ„o...\nDigite uma opÁ„o v·lida!!\n\n");
+        printf("\nOps n√£o conhe√ßo essa op√ß√£o...\nDigite uma op√ß√£o v√°lida!!\n\n");
         system("pause");
     }
     switch (contrl)
     {
-        case 1: menu(pjt);
+        case 1: menuPrincipal(pjt);
         break;
         case 2: system("cls");
-                printf("\nAtÈ mais!!!\n \n");
+                printf("\nAt√© mais!!!\n \n");
                 system("pause");
                 exit(1);
         break;
@@ -58,7 +58,7 @@ void inserirPj (prjt pjt[]){//Funcao para inserir projeto
     {
     system("cls");
     pjt[i].codigo=i+1;
-    printf("\nEste Projeto È o de cÛdigo n˙mero: %d .",pjt[i].codigo);
+    printf("\nEste Projeto √© o de c√≥digo n√∫mero: %d .",pjt[i].codigo);
     char gerente[100];
     do{
         printf("\nDigite o nome do(a) Gerente:\n");
@@ -66,7 +66,7 @@ void inserirPj (prjt pjt[]){//Funcao para inserir projeto
         gets(gerente);
         if(strlen(gerente)>50)
         {
-            printf("\nAbrevie o nome (m·ximo de 50 caracteres)!\n");
+            printf("\nAbrevie o nome (m√°ximo de 50 caracteres)!\n");
         }
     }while(strlen(gerente)>50);
     strcpy(pjt[i].gerente,gerente);
@@ -84,22 +84,22 @@ void inserirPj (prjt pjt[]){//Funcao para inserir projeto
     }while(strlen(cliente)>50);
     strcpy(pjt[i].cliente,cliente);
 
-    printf("\nInsira a data de previs„o de entrega do projeto\n");
+    printf("\nInsira a data de previs√£o de entrega do projeto\n");
     scanf("%d %d %d",&pjt[i].datapj.dia,&pjt[i].datapj.mes,&pjt[i].datapj.ano);
 
     system("pause");
     system("cls");
 
-    printf("\nEste Projeto È o de codigo n˙mero: %d .",pjt[i].codigo);
+    printf("\nEste Projeto √© o de c√≥digo n√∫mero: %d .",pjt[i].codigo);
     printf("\nAgora vamos para as despesas do projeto.");
 
-    printf("\n \nDigite o sal·rio dos desenvolvedores: ");
+    printf("\n \nDigite o sal√°rio dos desenvolvedores: ");
     scanf("%f",&pjt[i].despesas.salario_dev);
 
     printf("\nDigite o valor gasto em horas extras: ");
     scanf("%f",&pjt[i].despesas.hrextra);
 
-    printf("\nDigite o valor do deslocamento para as reuniıes: ");
+    printf("\nDigite o valor do deslocamento para as reuni√µes: ");
     scanf("%f",&pjt[i].despesas.deslocReunioes);
 
     printf("\nDigite os outros gastos do Projeto: ");
@@ -110,7 +110,7 @@ void inserirPj (prjt pjt[]){//Funcao para inserir projeto
     system("cls");
     }
     system("cls");
-    printf("\nVoce inseriu todos os projetos agora ser· direcionado ao menu!\n \n");
+    printf("\nVoce inseriu todos os projetos agora ser√° direcionado ao menu!\n \n");
     system("pause");
 }
 
@@ -129,25 +129,25 @@ void opcao1 (prjt pjt[]){//Feito...O lucro Total dos projetos em andamento...
     controle(pjt);
 }
 
-void opcao2 (prjt pjt[]){//Feito...Quantos projetos est„o atrasados
+void opcao2 (prjt pjt[]){//Feito...Quantos projetos estÔøΩo atrasados
     system("cls");
     setlocale(LC_ALL,"portuguese");
     int i,cont=0;
     data data_atual ;
-    printf("Digite o dia/mes/ano neste formato (00 00 0000) para fazer a pesquisa dos projetos atrasados\n");
+    printf("Digite o dia mes ano neste formato (Ex:01 01 2023) para fazer a pesquisa dos projetos atrasados\n");
     scanf("%d %d %d", &data_atual.dia, &data_atual.mes, &data_atual.ano);
     for(i=0;i<max;i++){
         if(data_atual.ano<pjt[i].datapj.ano)
         {
-            printf("\nEste projeto de codigo %d est· atrasado do(a) gerente : %s.\n",pjt[i].codigo,pjt[i].gerente);
+            printf("\nEste projeto de codigo %d est√° atrasado do(a) gerente : %s.\n",pjt[i].codigo,pjt[i].gerente);
             cont++;
         }else if(data_atual.mes<pjt[i].datapj.mes)
         {
-            printf("\nEste projeto de codigo %d est· atrasado do(a) gerente : %s.\n",pjt[i].codigo,pjt[i].gerente);
+            printf("\nEste projeto de codigo %d est√° atrasado do(a) gerente : %s.\n",pjt[i].codigo,pjt[i].gerente);
             cont++;
         }else if(data_atual.dia<pjt[i].datapj.dia)
         {
-            printf("\nEste projeto de codigo %d est· atrasado do(a) gerente : %s.\n",pjt[i].codigo,pjt[i].gerente);
+            printf("\nEste projeto de codigo %d est√° atrasado do(a) gerente : %s.\n",pjt[i].codigo,pjt[i].gerente);
             cont++;
         }
     }
@@ -157,7 +157,7 @@ void opcao2 (prjt pjt[]){//Feito...Quantos projetos est„o atrasados
         break;
     case 1: printf("\nSomente %d projeto com atraso.\n \n",cont);
         break;
-    default: printf("\nNo total s„o %d projetos com atraso\n \n",cont);
+    default: printf("\nNo total s√£o %d projetos com atraso\n \n",cont);
         break;
     }
     system("pause");
@@ -165,7 +165,7 @@ void opcao2 (prjt pjt[]){//Feito...Quantos projetos est„o atrasados
     controle(pjt);
 }
 
-void opcao3 (prjt pjt[]){//Funcionando...Feito...O cÛdigo do pjt e o nome do gerente do pjt com maior gasto com horas extras
+void opcao3 (prjt pjt[]){//Funcionando...Feito...O cÔøΩdigo do pjt e o nome do gerente do pjt com maior gasto com horas extras
     system("cls");
     setlocale(LC_ALL,"portuguese");
     int i=0,pos=0;
@@ -180,14 +180,14 @@ void opcao3 (prjt pjt[]){//Funcionando...Feito...O cÛdigo do pjt e o nome do ger
         }
     }
 
-    printf("\nO projeto com maior gasto em horas extras È o projeto de cÛdigo n˙mero: %d.\nE o seu gerente È : %s\n \n",pjt[pos].codigo,pjt[pos].gerente);
+    printf("\nO projeto com maior gasto em horas extras √© o projeto de c√≥digo n√∫mero: %d.\nE o seu gerente √© : %s\n \n",pjt[pos].codigo,pjt[pos].gerente);
 
     system("pause");
     system("cls");
     controle(pjt);
 }
 
-void opcao4 (prjt pjt[]){//Funcionando...Feito...O cÛdigo do pjt e o nome do gerente com o pjt com maior gasto total
+void opcao4 (prjt pjt[]){//Funcionando...Feito...O cÔøΩdigo do pjt e o nome do gerente com o pjt com maior gasto total
     system("cls");
     setlocale(LC_ALL,"portuguese");
     int i=0,pos=0;
@@ -202,14 +202,14 @@ void opcao4 (prjt pjt[]){//Funcionando...Feito...O cÛdigo do pjt e o nome do ger
             pos=i;
         }
     }
-    printf("\nO projeto com maior gasto total È o projeto de cÛdigo n˙mero: %d.\nE o seu gerente È : %s\n \n",pjt[pos].codigo,pjt[pos].gerente);
+    printf("\nO projeto com maior gasto total √© o projeto de c√≥digo n√∫mero: %d.\nE o seu gerente √© : %s\n \n",pjt[pos].codigo,pjt[pos].gerente);
 
     system("pause");
     system("cls");
     controle(pjt);
 }
 
-void opcao5 (prjt pjt[]){//Funcionando...Dado o nome de um gerente:CÛdigo do projeto,Cliente,Data prevista de Entrega,Lucro
+void opcao5 (prjt pjt[]){//Funcionando...Dado o nome de um gerente:CÔøΩdigo do projeto,Cliente,Data prevista de Entrega,Lucro
     system("cls");
     setlocale(LC_ALL,"portuguese");
     int i,retorno=0,cont=0;
@@ -223,11 +223,11 @@ void opcao5 (prjt pjt[]){//Funcionando...Dado o nome de um gerente:CÛdigo do pro
         retorno=strcmp(gerente,pjt[i].gerente);
         if(retorno==0){
             cont++;
-            printf("\nEste È o projeto de n˙mero: %d\n\nNome do(a) cliente: %s.\nData prevista de entrega: %d/%d/%d\nO lucro deste projeto È cerca de R$%.2f reais.\n \n",pjt[i].codigo,pjt[i].cliente,pjt[i].datapj.dia,pjt[i].datapj.mes,pjt[i].datapj.ano,((pjt[i].despesas.receitaDoProjeto)-(pjt[i].despesas.deslocReunioes+pjt[i].despesas.hrextra+pjt[i].despesas.outrosGastos+pjt[i].despesas.salario_dev)));
+            printf("\nEste √© o projeto de n√∫mero: %d\n\nNome do(a) cliente: %s.\nData prevista de entrega: %d/%d/%d\nO lucro deste projeto √© cerca de R$%.2f reais.\n \n",pjt[i].codigo,pjt[i].cliente,pjt[i].datapj.dia,pjt[i].datapj.mes,pjt[i].datapj.ano,((pjt[i].despesas.receitaDoProjeto)-(pjt[i].despesas.deslocReunioes+pjt[i].despesas.hrextra+pjt[i].despesas.outrosGastos+pjt[i].despesas.salario_dev)));
         }
     }
     if(cont==0){
-        printf("\nOps n„o achei este gerente!!\n \n");
+        printf("\nOps n√£o achei este gerente!!\n \n");
 
     }
     system("pause");
@@ -235,7 +235,7 @@ void opcao5 (prjt pjt[]){//Funcionando...Dado o nome de um gerente:CÛdigo do pro
     controle(pjt);
 }
 
-void opcao6 (prjt pjt[]){//Funcionando...Dado o nome do cliente imprimir:CÛdigo do projeto,Gerente,Data prevista de Entrega,Custo Total
+void opcao6 (prjt pjt[]){//Funcionando...Dado o nome do cliente imprimir:C√≥digo do projeto,Gerente,Data prevista de Entrega,Custo Total
     system("cls");
     setlocale(LC_ALL,"portuguese");
     int i,retorno=0,cont=0;
@@ -249,27 +249,27 @@ void opcao6 (prjt pjt[]){//Funcionando...Dado o nome do cliente imprimir:CÛdigo 
             retorno=strcmp(cliente,pjt[i].cliente);
             if(retorno==0){
                 cont++;
-                printf("\nEste È o projeto de n˙mero: %d\n\nNome do(a) gerente: %s .\nData prevista de entrega: %d/%d/%d\nO custo deste projeto È cerca de R$%.2f reais.\n \n",pjt[i].codigo,pjt[i].gerente,pjt[i].datapj.dia,pjt[i].datapj.mes,pjt[i].datapj.ano,((pjt[i].despesas.deslocReunioes+pjt[i].despesas.hrextra+pjt[i].despesas.outrosGastos+pjt[i].despesas.salario_dev)));
+                printf("\nEste √© o projeto de n√∫mero: %d\n\nNome do(a) gerente: %s .\nData prevista de entrega: %d/%d/%d\nO custo deste projeto √© cerca de R$%.2f reais.\n \n",pjt[i].codigo,pjt[i].gerente,pjt[i].datapj.dia,pjt[i].datapj.mes,pjt[i].datapj.ano,((pjt[i].despesas.deslocReunioes+pjt[i].despesas.hrextra+pjt[i].despesas.outrosGastos+pjt[i].despesas.salario_dev)));
             }
         }
         if(cont==0){
-            printf("\nOps n„o achei este cliente!!\n");
+            printf("\nOps n√£o achei este cliente!!\n");
         }
     system("pause");
     system("cls");
     controle(pjt);
 }
 
-void menu (prjt pjt[]){//Menu inicial
+void menuPrincipal (prjt pjt[]){//Menu inicial
     setlocale(LC_ALL,"portuguese");
     int comando=0;
     system("cls");
-    printf("\nDigite o n˙mero correspondente ao comando para execut·-lo!\n");
+    printf("\nDigite o n√∫mero correspondente ao comando para execut√°-lo!\n");
     printf("\n1-Lucro total dos projetos em andamento.\n2-Projetos atrasados\n3-Projeto com maior gasto com horas extras.\n4-Projeto de maior gasto\n5-Pesquisa por gerencia\n6-Pesquisa por cliente\n7-Sair\n");
     scanf("%d",&comando);
     if((comando>7)||(comando<1))
     {
-        printf("\nOps acho que n„o conheco essa opÁ„o...\nDigite uma opÁ„o v·lida!!\n\n");
+        printf("\nOps acho que n√£o conheco essa op√ß√£o...\nDigite uma op√ß√£o v√°lida!!\n\n");
         system("pause");
     }
     switch (comando)
@@ -287,11 +287,11 @@ void menu (prjt pjt[]){//Menu inicial
         case 6: opcao6(pjt);
         break;
         case 7: system("cls");
-                printf("\nAtÈ mais!!!\n \n");
+                printf("\nAt√© mais!!!\n \n");
                 system("pause");
                 exit(1);
         break;
-        default:menu(pjt);
+        default:menuPrincipal(pjt);
         break;
     }
 }
